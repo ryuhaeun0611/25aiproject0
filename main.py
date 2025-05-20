@@ -29,11 +29,50 @@ st.markdown("""
         body {
             background-color: #E3F2FD;
         }
+        .title {
+            text-align: center;
+            color: #1976D2;
+            font-size: 36px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+        .subheader {
+            font-size: 24px;
+            color: #01579B;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .recommendation-card {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .recommendation-card h3 {
+            color: #0288D1;
+            font-family: 'Arial', sans-serif;
+            font-size: 28px;
+        }
+        .recommendation-card p {
+            color: #555555;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+        }
+        .stSelectbox, .stButton {
+            background-color: #0288D1;
+            color: white;
+            border-radius: 12px;
+            padding: 10px;
+        }
+        .stSelectbox:hover, .stButton:hover {
+            background-color: #0277BD;
+        }
     </style>
     """, unsafe_allow_html=True)
 
 # 타이틀
-st.title("MBTI에 맞는 나라 추천 🌏")
+st.markdown('<p class="title">MBTI에 맞는 나라 추천 🌏</p>', unsafe_allow_html=True)
 
 # MBTI 선택
 mbti = st.selectbox("당신의 MBTI를 선택하세요!", list(country_recommendations.keys()))
@@ -41,4 +80,10 @@ mbti = st.selectbox("당신의 MBTI를 선택하세요!", list(country_recommend
 # MBTI에 맞는 나라와 이유를 가져와서 표시
 country, reason = country_recommendations[mbti]
 
-st.subheader(f"추천하는 나라는 {country}입니다! {reason}")
+# 추천 이유 카드
+st.markdown(f'''
+<div class="recommendation-card">
+    <h3>추천하는 나라는 {country}입니다!</h3>
+    <p>{reason}</p>
+</div>
+''', unsafe_allow_html=True)
