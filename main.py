@@ -24,7 +24,6 @@ country_recommendations = {
 st.set_page_config(page_title="MBTI에 맞는 나라 추천", page_icon="🌍", layout="centered")
 
 # 배경색 설정 (화려한 색상)
-st.markdown("""
     <style>
         body {
             background-color: #FFEB3B; /* 연한 노란색 */
