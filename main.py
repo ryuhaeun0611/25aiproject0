@@ -19,19 +19,3 @@ country_recommendations = {
     'ESTJ': ('싱가포르', '효율적이고 체계적인 생활을 선호하는 사람들에게 알맞은 곳이에요. 📊'),
     'ESTP': ('스페인', '활기차고 도전적인 환경에서 모험적인 생활을 즐길 수 있어요. ⚡')
 }
-
-# Streamlit 앱 디자인
-st.set_page_config(page_title="MBTI에 맞는 나라 추천", page_icon="🌍", layout="centered")
-
-# 배경색 설정 (화려한 색상)
-    <style>
-        body {
-            background-color: #FFEB3B; /* 연한 노란색 */
-            font-family: 'Arial', sans-serif;
-        }
-        .title {
-            text-align: center;
-            color: #1976D2;
-            font-size: 40px;
-            font-weight: bold;
-            animation
