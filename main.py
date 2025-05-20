@@ -19,3 +19,81 @@ country_recommendations = {
     'ESTJ': ('싱가포르', '효율적이고 체계적인 생활을 선호하는 사람들에게 알맞은 곳이에요. 📊'),
     'ESTP': ('스페인', '활기차고 도전적인 환경에서 모험적인 생활을 즐길 수 있어요. ⚡')
 }
+
+# Streamlit 앱 디자인
+st.set_page_config(page_title="MBTI에 맞는 나라 추천", page_icon="🌍", layout="centered")
+
+# 배경색 설정 (화려한 색상)
+st.markdown("""
+    <style>
+        body {
+            background-color: #FFEB3B; /* 연한 노란색 */
+            font-family: 'Arial', sans-serif;
+        }
+        .title {
+            text-align: center;
+            color: #1976D2;
+            font-size: 40px;
+            font-weight: bold;
+            animation: fadeIn 1.5s ease-out;
+        }
+        .subheader {
+            font-size: 24px;
+            color: #0288D1;
+            text-align: center;
+            font-weight: bold;
+        }
+        .recommendation-card {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            animation: slideIn 1s ease-in-out;
+        }
+        .recommendation-card h3 {
+            color: #0288D1;
+            font-size: 28px;
+        }
+        .recommendation-card p {
+            color: #555555;
+            font-size: 18px;
+        }
+        .stSelectbox, .stButton {
+            background-color: #0288D1;
+            color: white;
+            border-radius: 12px;
+            padding: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .stSelectbox:hover, .stButton:hover {
+            background-color: #01579B;
+        }
+        /* 애니메이션 효과 */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* 버튼 스타일 */
+        .stSelectbox select, .stButton button {
+            font-size: 16px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+# 타이틀
+st.markdown('<p class="title">MBTI에 맞는 나라 추천 🌏</p>', unsafe_allow_html=True)
+
+# MBTI 선택
+mbti = st.selectbox("당신의 MBTI를 선택하세요!", list(country_recommendations.keys()))
+
+# MBTI에 맞는 나라와 이유를 가져와서 표시
+country, reason = country_recommendations[mbti]
+
+# 추천 이유
